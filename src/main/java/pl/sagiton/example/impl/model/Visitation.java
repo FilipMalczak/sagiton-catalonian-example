@@ -1,4 +1,4 @@
-package pl.sagiton.example;
+package pl.sagiton.example.impl.model;
 
 import lombok.Value;
 

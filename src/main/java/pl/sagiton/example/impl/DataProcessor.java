@@ -1,8 +1,10 @@
-package pl.sagiton.example;
+package pl.sagiton.example.impl;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import pl.sagiton.example.impl.model.Visitation;
+import pl.sagiton.example.impl.processing.VisitationHandler;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;

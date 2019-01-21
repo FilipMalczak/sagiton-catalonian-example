@@ -1,7 +1,7 @@
-package pl.sagiton.example;
+package pl.sagiton.example.impl.processing;
 
-import java.util.function.Function;
-import java.util.function.Predicate;
+import pl.sagiton.example.impl.model.Visitation;
+
 import java.util.stream.Stream;
 
 public interface VisitationHandler {

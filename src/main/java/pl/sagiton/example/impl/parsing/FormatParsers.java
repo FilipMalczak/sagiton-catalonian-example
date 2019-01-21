@@ -1,4 +1,6 @@
-package pl.sagiton.example;
+package pl.sagiton.example.impl.parsing;
+
+import pl.sagiton.example.impl.model.Visitation;
 
 public class FormatParsers {
     //todo could be refactored to reduce code duplication

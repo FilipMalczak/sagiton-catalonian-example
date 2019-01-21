@@ -4,11 +4,11 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
+import pl.sagiton.example.impl.ApplicationCommand;
+import pl.sagiton.example.impl.DataProcessor;
+import pl.sagiton.example.impl.parsing.InputFileParser;
 
-import java.net.URI;
-import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
@@ -48,6 +48,6 @@ public class ExampleApp implements Runnable{
     @Override
     @SneakyThrows
     public void run() {
-        new DataProcessor(() -> new InputFileParser().getDataSource(lineStream), command.getHandler(arg), System.out::println);
+        new DataProcessor(() -> new InputFileParser().getDataSource(lineStream), command.getHandler(arg), System.out::println).run();
     }
 }

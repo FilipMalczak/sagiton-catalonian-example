@@ -1,4 +1,4 @@
-package pl.sagiton.example;
+package pl.sagiton.example.impl.utils;
 
 import java.util.function.Function;
 import java.util.function.Predicate;

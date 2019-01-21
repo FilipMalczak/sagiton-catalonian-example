@@ -2,6 +2,9 @@ package pl.sagiton.example;
 
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
+import pl.sagiton.example.impl.ApplicationCommand;
+import pl.sagiton.example.impl.DataProcessor;
+import pl.sagiton.example.impl.parsing.InputFileParser;
 
 import java.net.URI;
 import java.nio.file.Files;
@@ -13,13 +16,13 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DataProcessorTests {
     @SneakyThrows
     private Stream<String> getLines(String resourceName){
         URI resourceUri = this.getClass().getResource(resourceName).toURI();
-        return  Files.lines(Paths.get(resourceUri));
+        return Files.lines(Paths.get(resourceUri));
     }
 
     private static <T> void assertEqualsUnordered(Collection<T> expected, Collection<T> actual){
