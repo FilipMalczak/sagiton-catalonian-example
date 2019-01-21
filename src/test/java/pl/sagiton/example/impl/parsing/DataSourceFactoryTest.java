@@ -53,9 +53,61 @@ class DataSourceFactoryTest {
         );
     }
 
-    //todo
-    //f1 then f2
-    //f2 then f1
-    //f1 f2 f1 f2
+    @Test
+    @DisplayName("1st format before 2nd format should parse properly")
+    public void f1ThenF2(){
+        Stream<String> lines = Stream.concat(getLines("/f1only.txt"), getLines("/f2only.txt"));
+        List<Visitation> result = DataSourceFactory.getDataSource(lines).collect(Collectors.toList());
+        assertEquals(
+            asList(
+                Visitation.of("Erica Burns", "BARCELONA", "93654902Y"),
+                Visitation.of("Lucy Mcgee", "LONDON", "51011156P"),
+                Visitation.of("Mitchell Newton", "SAN FRANCISCO", "25384390A"),
+                Visitation.of("Margarita Richards", "LAS VEGAS", "09877359D"),
+                Visitation.of("Mitchell Newton", "LAS VEGAS", "25384390A"),
+                Visitation.of("Margarita Richards", "NEW YORK", "09877359D"),
+                Visitation.of("Rhonda Hopkins", "BARCELONA", "54315871Z")
+            ),
+            result
+        );
+    }
 
+
+    @Test
+    @DisplayName("2nd format before 1st format should parse properly")
+    public void f2ThenF1(){
+        Stream<String> lines = Stream.concat(getLines("/f2only.txt"), getLines("/f1only.txt"));
+        List<Visitation> result = DataSourceFactory.getDataSource(lines).collect(Collectors.toList());
+        assertEquals(
+            asList(
+                Visitation.of("Mitchell Newton", "LAS VEGAS", "25384390A"),
+                Visitation.of("Margarita Richards", "NEW YORK", "09877359D"),
+                Visitation.of("Rhonda Hopkins", "BARCELONA", "54315871Z"),
+                Visitation.of("Erica Burns", "BARCELONA", "93654902Y"),
+                Visitation.of("Lucy Mcgee", "LONDON", "51011156P"),
+                Visitation.of("Mitchell Newton", "SAN FRANCISCO", "25384390A"),
+                Visitation.of("Margarita Richards", "LAS VEGAS", "09877359D")
+            ),
+            result
+        );
+    }
+
+    @Test
+    @DisplayName("It should be possible to mix formats in the same file")
+    public void mixed(){
+        Stream<String> lines = getLines("/mixed.txt");
+        List<Visitation> result = DataSourceFactory.getDataSource(lines).collect(Collectors.toList());
+        assertEquals(
+            asList(
+                Visitation.of("Erica Burns", "BARCELONA", "93654902Y"),
+                Visitation.of("Lucy Mcgee", "LONDON", "51011156P"),
+                Visitation.of("Mitchell Newton", "LAS VEGAS", "25384390A"),
+                Visitation.of("Margarita Richards", "NEW YORK", "09877359D"),
+                Visitation.of("Rhonda Hopkins", "BARCELONA", "54315871Z"),
+                Visitation.of("Mitchell Newton", "SAN FRANCISCO", "25384390A"),
+                Visitation.of("Margarita Richards", "LAS VEGAS", "09877359D")
+            ),
+            result
+        );
+    }
 }

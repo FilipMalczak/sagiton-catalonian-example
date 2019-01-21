@@ -1,0 +1,10 @@
+F1
+D Erica Burns,BARCELONA,93654902Y
+D Lucy Mcgee,LONDON,51011156P
+F2
+D Mitchell Newton ; LAS VEGAS ; 25384390-A
+D Margarita Richards ; NEW YORK ; 09877359-D
+D Rhonda Hopkins ; BARCELONA ; 54315871-Z
+F1
+D Mitchell Newton,SAN FRANCISCO,25384390A
+D Margarita Richards,LAS VEGAS,09877359D
