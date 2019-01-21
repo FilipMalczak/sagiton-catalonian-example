@@ -11,6 +11,7 @@ repositories {
 
 apply plugin: 'idea'
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'java-library'
 apply plugin: 'jacoco'
 apply plugin: 'io.spring.dependency-management'
@@ -32,6 +33,8 @@ dependencyManagement {
         dependency     group: 'org.junit.jupiter',  name: 'junit-jupiter-api',     version: '5.3.2'
         dependency     group: 'org.junit.jupiter',  name: 'junit-jupiter-engine',  version: '5.3.2'
         dependency     group: 'org.junit.jupiter',  name: 'junit-jupiter-params',  version: '5.3.2'
+        dependency     group: 'org.junit.vintage',  name: 'junit-vintage-engine',  version: '5.3.2'
+        dependency     group: 'org.spockframework', name: 'spock-core',            version: '1.2-groovy-2.4'
 
     }
 }
@@ -45,7 +48,9 @@ dependencies {
     testImplementation group: 'org.projectlombok',  name: 'lombok'
     testImplementation group: 'org.junit.jupiter',  name: 'junit-jupiter-api'
     testImplementation group: 'org.junit.jupiter',  name: 'junit-jupiter-params'
+    testImplementation group: 'org.spockframework', name: 'spock-core'
 
+    testRuntimeOnly    group: 'org.junit.vintage',  name: 'junit-vintage-engine'
     testRuntimeOnly    group: 'org.junit.jupiter',  name: 'junit-jupiter-engine'
 }
 
@@ -64,3 +69,4 @@ jacocoTestReport {
     }
 }
 
+build.dependsOn jacocoTestReport

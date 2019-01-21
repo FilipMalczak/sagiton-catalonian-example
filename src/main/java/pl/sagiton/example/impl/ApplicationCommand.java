@@ -13,7 +13,8 @@ public enum ApplicationCommand {
         public VisitationHandler getHandler(String arg) {
             return new SimpleVisitationHandler(isEqual(Visitation::getCity, arg), v -> v.getName()+","+v.getId());
         }
-    }, ID {
+    },
+    ID {
         @Override
         public VisitationHandler getHandler(String arg) {
             return new SimpleVisitationHandler(isEqual(Visitation::getId, arg), Visitation::getCity);

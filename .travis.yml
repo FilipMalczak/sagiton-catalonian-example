@@ -2,3 +2,4 @@ language:       java
 before_install: ./gradlew clean
 install:        ./gradlew assemble
 script:         ./gradlew test
+after_success:  ./gradlew jacocoTestReport
