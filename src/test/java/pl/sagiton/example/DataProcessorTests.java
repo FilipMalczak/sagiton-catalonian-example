@@ -4,7 +4,7 @@ import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import pl.sagiton.example.impl.ApplicationCommand;
 import pl.sagiton.example.impl.DataProcessor;
-import pl.sagiton.example.impl.parsing.InputFileParser;
+import pl.sagiton.example.impl.parsing.DataSourceFactory;
 
 import java.net.URI;
 import java.nio.file.Files;
@@ -35,7 +35,7 @@ class DataProcessorTests {
     public void cartagenaCity(){
         List<String> result = new LinkedList<>();
         DataProcessor processor = new DataProcessor(
-            () -> new InputFileParser().getDataSource(getLines("/input1.txt")),
+            () -> new DataSourceFactory().getDataSource(getLines("/input1.txt")),
             ApplicationCommand.CITY.getHandler("CARTAGENA"),
             result::add
         );
@@ -53,7 +53,7 @@ class DataProcessorTests {
     public void shelleyPaneId(){
         List<String> result = new LinkedList<>();
         DataProcessor processor = new DataProcessor(
-            () -> new InputFileParser().getDataSource(getLines("/input1.txt")),
+            () -> new DataSourceFactory().getDataSource(getLines("/input1.txt")),
             ApplicationCommand.ID.getHandler("54808168L"),
             result::add
         );

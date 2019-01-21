@@ -5,7 +5,7 @@ import pl.sagiton.example.impl.model.Visitation;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class InputFileParser {
+public class DataSourceFactory {
     public static Stream<Visitation> getDataSource(Stream<String> lines){
         ParsingStateMachine stateMachine = new ParsingStateMachine();
         return lines

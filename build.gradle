@@ -11,8 +11,8 @@ repositories {
 
 apply plugin: 'idea'
 apply plugin: 'java'
-apply plugin: 'groovy'
 apply plugin: 'java-library'
+apply plugin: 'jacoco'
 apply plugin: 'io.spring.dependency-management'
 
 //todo add static analysis
@@ -54,6 +54,13 @@ test {
     reports {
         junitXml.enabled = true
         html.enabled = true
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
     }
 }
 
