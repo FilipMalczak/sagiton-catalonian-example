@@ -1,6 +1,6 @@
 # Example
 
-[![Build Status](https://travis-ci.com/FilipMalczak/sagiton-spanish-example.svg?branch=master)](https://travis-ci.com/FilipMalczak/sagiton-spanish-example)
+[![Build Status](https://travis-ci.com/FilipMalczak/sagiton-catalonian-example.svg?branch=master)](https://travis-ci.com/FilipMalczak/sagiton-catalonian-example)
 
 This is a solution to an interview question for company I'm currently working with.
 
