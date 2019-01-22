@@ -103,10 +103,10 @@ class DataSourceFactoryTest {
                 Visitation.of("Lucy Mcgee", "LONDON", "51011156P"),
                 Visitation.of("Mitchell Newton", "LAS VEGAS", "25384390A"),
                 Visitation.of("Margarita Richards", "NEW YORK", "09877359D"),
-                Visitation.of("Rhonda Hopkins", "BARCELONA", "54315871Z"),
                 Visitation.of("Mitchell Newton", "SAN FRANCISCO", "25384390A"),
-                Visitation.of("Margarita Richards", "LAS VEGAS", "09877359D")
-            ),
+                Visitation.of("Margarita Richards", "LAS VEGAS", "09877359D"),
+                Visitation.of("Rhonda Hopkins", "BARCELONA", "54315871Z")
+                ),
             result
         );
     }
