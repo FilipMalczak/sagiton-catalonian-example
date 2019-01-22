@@ -62,7 +62,7 @@ class DataProcessorTests {
         );
     }
 
-    @DisplayName("Example scenario for ID mode with empty input file")
+    @DisplayName("Empty input file should result in no output for ID mode")
     @Test
     @SneakyThrows
     public void emptyId(){
@@ -76,7 +76,35 @@ class DataProcessorTests {
         assertEqualsUnordered(emptyList(), result);
     }
 
-    @DisplayName("Example scenario for CITY mode with empty input file")
+    @DisplayName("Using non-existent ID should result in no output")
+    @Test
+    @SneakyThrows
+    public void missingId(){
+        List<String> result = new LinkedList<>();
+        DataProcessor processor = new DataProcessor(
+            () -> new DataSourceFactory().getDataSource(getLines("/f1only.txt")),
+            ApplicationCommand.ID.getHandler("09877359E"),
+            result::add
+        );
+        processor.run();
+        assertEqualsUnordered(emptyList(), result);
+    }
+
+    @DisplayName("Using non-existent CITY should result in no output")
+    @Test
+    @SneakyThrows
+    public void missingCity(){
+        List<String> result = new LinkedList<>();
+        DataProcessor processor = new DataProcessor(
+            () -> new DataSourceFactory().getDataSource(getLines("/f1only.txt")),
+            ApplicationCommand.CITY.getHandler("CARTAGENA"),
+            result::add
+        );
+        processor.run();
+        assertEqualsUnordered(emptyList(), result);
+    }
+
+    @DisplayName("Empty input file should result in no output for ID mode")
     @Test
     @SneakyThrows
     public void emptyCity() {
@@ -131,7 +159,4 @@ class DataProcessorTests {
         duplicatedProcessor.run();
         assertEqualsUnordered(referenceResult, duplicatedResult);
     }
-
-    //todo
-    //mismatched input (expect empty output, e.g. for non-existing city or ID)
 }
